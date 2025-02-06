@@ -31,10 +31,18 @@ namespace COMP003A.CodingAssignment4
                 {
                     Console.Write("Enter Product Name: ");
                     string newProduct = Console.ReadLine();
-                    Console.Write("Enter Product Quantity: ");
-                    int amount = int.Parse(Console.ReadLine());
                     productInventory.Add(newProduct);
-                    productAmount.Add(amount);
+     
+                    Console.Write("Enter Product Quantity: ");
+                    try
+                    {
+                        int amount = int.Parse(Console.ReadLine());
+                        productAmount.Add(amount);
+                    }
+                    catch (Exception ex)
+                    {
+                        Console.WriteLine(ex.Message);
+                    }
                 }
                 else if (choice == 2)
                 {
