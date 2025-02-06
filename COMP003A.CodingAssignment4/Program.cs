@@ -12,6 +12,7 @@ namespace COMP003A.CodingAssignment4
         static void Main(string[] args)
         {
             List<string> productInventory = new List<string>();
+            List<int> productAmount = new List<int>();
             int choice = 0;
 
             while (choice != 4)
@@ -31,8 +32,9 @@ namespace COMP003A.CodingAssignment4
                     Console.Write("Enter Product Name: ");
                     string newProduct = Console.ReadLine();
                     Console.Write("Enter Product Quantity: ");
-                    int wawa = int.Parse(Console.ReadLine());
+                    int amount = int.Parse(Console.ReadLine());
                     productInventory.Add(newProduct);
+                    productAmount.Add(amount);
                 }
                 else if (choice == 2)
                 {
@@ -40,9 +42,9 @@ namespace COMP003A.CodingAssignment4
                 }
                 else if (choice == 3)
                 {
-                    foreach (string product in productInventory)
+                    for (int i = 0; i < productInventory.Count; i++)
                     {
-                        Console.WriteLine(product);
+                        Console.WriteLine(productInventory[i] + ": " + productAmount[i]);
                     }
                 }
                 else if (choice == 4)
