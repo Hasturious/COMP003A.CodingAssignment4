@@ -4,6 +4,7 @@
 // Purpose: Inventory management application with a minimum of 10 elements in the collection.
 
 using System.Linq.Expressions;
+using System.Runtime.InteropServices;
 
 namespace COMP003A.CodingAssignment4
 {
@@ -46,7 +47,28 @@ namespace COMP003A.CodingAssignment4
                 }
                 else if (choice == 2)
                 {
+                    Console.Write($"Make change to what product ({string.Join(",", productInventory)}):\n");
+                    string changeProduct = Console.ReadLine();
 
+                    int index = productInventory.FindIndex(p => p.Equals(changeProduct, StringComparison.OrdinalIgnoreCase));
+
+                    if (index != -1) // Product exists
+                    {
+                        Console.Write("New Quantity: ");
+                        if (int.TryParse(Console.ReadLine(), out int updatedProduct) && updatedProduct >= 0)
+                        {
+                            productAmount[index] = updatedProduct; // Update quantity
+                            Console.WriteLine($"Updated {productInventory[index]} is now {productAmount[index]}.");
+                        }
+                        else
+                        {
+                            Console.WriteLine("Invalid quantity! Please enter a valid number.");
+                        }
+                    }
+                    else
+                    {
+                        Console.WriteLine("Invalid Input");
+                    }
                 }
                 else if (choice == 3)
                 {
@@ -54,6 +76,8 @@ namespace COMP003A.CodingAssignment4
                     {
                         Console.WriteLine(productInventory[i] + ": " + productAmount[i]);
                     }
+                    Console.WriteLine($"Total Products: {productInventory.Count}\nTotal Quantity: {productAmount.Sum()}");
+                    Console.WriteLine($"Average Quantity: {productAmount.Sum() / productInventory.Count}.00");
                 }
                 else if (choice == 4)
                 {
