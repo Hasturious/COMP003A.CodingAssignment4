@@ -109,14 +109,14 @@ namespace COMP003A.CodingAssignment4
         }
         static void AverageQuantity(List<int> productAmount)
         {
-            if (productAmount.Count == 0) // Prevent division by zero
+            if (productAmount.Count == 0) //Prevent division by zero
             {
                 Console.WriteLine("No inventory available.");
                 return;
             }
 
             double average = (double)productAmount.Sum() / productAmount.Count;
-            Console.WriteLine($"Average Quantity: {average:F2}"); // Ensures two decimal places
+            Console.WriteLine($"Average Quantity: {average}:F2"); //Ensures two decimal places
         }
     }
 }
