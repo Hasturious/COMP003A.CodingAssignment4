@@ -116,7 +116,7 @@ namespace COMP003A.CodingAssignment4
             }
 
             double average = (double)productAmount.Sum() / productAmount.Count;
-            Console.WriteLine($"Average Quantity: {average}:F2"); //Ensures two decimal places
+            Console.WriteLine($"Average Quantity: {average:F2}"); //Ensures two decimal places
         }
     }
 }
