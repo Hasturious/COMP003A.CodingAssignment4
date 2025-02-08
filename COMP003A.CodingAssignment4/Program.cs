@@ -36,7 +36,7 @@ namespace COMP003A.CodingAssignment4
                     Console.Write("Enter Product Name: ");
                     string newProduct = Console.ReadLine();
                     productInventory.Add(newProduct);
-     
+
                     //adds a qauntity to the list
                     Console.Write("Enter Product Quantity: ");
                     try
@@ -92,7 +92,7 @@ namespace COMP003A.CodingAssignment4
                     //then we can get the number of unique products next to the sum of them
                     Console.WriteLine($"Total Products: {productInventory.Count}\nTotal Quantity: {productAmount.Sum()}");
                     //divide for an average
-                    Console.WriteLine($"Average Quantity: {productAmount.Sum() / productInventory.Count}.00");
+                    AverageQuantity(productAmount);
                 }
                 else if (choice == 4)
                 {
@@ -106,6 +106,17 @@ namespace COMP003A.CodingAssignment4
                 }
 
             }
+        }
+        static void AverageQuantity(List<int> productAmount)
+        {
+            if (productAmount.Count == 0) // Prevent division by zero
+            {
+                Console.WriteLine("No inventory available.");
+                return;
+            }
+
+            double average = (double)productAmount.Sum() / productAmount.Count;
+            Console.WriteLine($"Average Quantity: {average:F2}"); // Ensures two decimal places
         }
     }
 }
